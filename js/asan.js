@@ -31,7 +31,7 @@
   $('#container').on('click', '.medicalContent .mediList a', function(e){
     e.preventDefault()
     var url = this.href; //this.attr('href')
-    var part = this.id; //this.attr('id')
+    var part = this.attr('class'); //this.attr('id')
     $("#container > #content").remove();
     $("#container").load(url + " #content", function(){
       var newContent = '';
@@ -46,18 +46,27 @@
   })
   
  
+  //햄버거 버튼 클릭하면 네비박스 열기
+  $('#lnb_menu').on('click',function(){
+    $(this).next().css({
+      display:'block',
+    })
+    $('#lnb').animate({
+      left:'0px'
+    },500)
+  })
+
+  $('#lnb_close').on('click',function(){
+    $('#lnb').animate({
+      left:'-274px'
+    },500,function(){
+      $('#navWrap').css({
+        display:'none'
+      })
+    })
+  })
 
 
-
-//헤더박스는 스크롤 이벤트시 픽스드됨
- $(window).scroll(function(){
-  var sct = $(this).scrollTop()
-  if( sct >= 50 && !$('#header').hasClass('on') ){
-    $('#header').addClass('on')
-  }else if (sct < 50 && $('#header').hasClass('on')){
-    $('#header').removeClass('on')
-  }
- })
 
 
     
