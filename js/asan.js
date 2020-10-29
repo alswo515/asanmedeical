@@ -66,7 +66,17 @@
     })
   })
 
-
+  //섹션구역 맨위 한줄광고문구 위로 슬라이딩 시키기
+  setInterval(kim,1000)
+  function kim(){
+    $('.mainContent .main_noti a:first-child').animate({
+      marginTop:'-50px'
+    },500, function(){
+      $(this).appendTo('.mainContent .main_noti').css({
+        marginTop:'0px'
+      })
+    })
+  }
 
 
     
